@@ -9,26 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-	
-	// Generate random numbers for each dice (1...6)
-	var leftDiceNumber = Int.random(in: 1...6)
-	var rightDiceNumber = Int.random(in: 1...6)
-	
+
 	@IBOutlet weak var diceImageView1: UIImageView!
 	@IBOutlet weak var diceImageView2: UIImageView!
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
-	
+
 	@IBAction func rollButtonPressed(_ sender: UIButton) {
 		
-		// Set the images based on the random numbers
-		print(leftDiceNumber)
-		diceImageView1.image = UIImage(named: "dice\(leftDiceNumber)")
+		let leftDiceNumber = Int.random(in: 0...5)
+		let rightDiceNumber = Int.random(in: 0...5)
+
+		diceImageView1.image = UIImage(named: ["DiceOne", "DiceTwo", "DiceThree", "DiceFour", "DiceFive", "DiceSix"][leftDiceNumber])
 		
-		print(rightDiceNumber)
-		diceImageView2.image = UIImage(named: "dice\(rightDiceNumber)")
+		diceImageView2.image = UIImage(named: ["DiceOne", "DiceTwo", "DiceThree", "DiceFour", "DiceFive", "DiceSix"][rightDiceNumber])
+		
 	}
 }
 
